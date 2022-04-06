@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {display: flex; justify-content: center;}
+        p {color: blue;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+
+    <script>
+        var particle = new Particle();
+
+        const accessToken = '--';
+        const deviceId = '--';
+
+        function TrafficControl(color) {
+            document.getElementById("cur").innerHTML = color 
+            particle.callFunction({deviceId, name:'traffic_light', argument: color, auth:accessToken})
+               
+        }
+    </script>
+</head>
+<body>
+    <div class="continer">
+        <h1>Traffic light Controller</h1>
+        <div>
+            <button type="checkbox" onclick="TrafficControl('Red')">Red</button>
+            <button type="checkbox" onclick="TrafficControl('Yellow')">Yellow</button>
+            <button onclick="TrafficControl('Green')">Green</button>
+            <button onclick="TrafficControl('Off')">Off light</button>
+        </div>
+            <p><spam>Current light:</spam>
+               <spam id="cur"></spam>
+            </p>
+    </div>
+</body>
+
+</html>
